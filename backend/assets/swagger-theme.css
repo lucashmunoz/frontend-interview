@@ -1,0 +1,23 @@
+.swagger-ui .topbar {
+  background-color: #1E3A8A !important; /* Dark blue */
+}
+
+.swagger-ui .topbar .download-url-wrapper .download-url {
+  color: #ffffff !important; /* White text */
+}
+
+.swagger-ui .topbar a span {
+  color: #ffffff !important;
+}
+
+.swagger-ui .swagger-ui .btn {
+  background-color: #2563EB !important; /* Blue buttons */
+  color: #ffffff !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary {
+  border-color: #2563EB !important;
+  background: rgba(37, 99, 235, 0.1) !important;
+}
+
+.topbar-wrapper { content:url('http://localhost:4000/assets/logo.png'); width:200px; height:auto; }

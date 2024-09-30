@@ -1,0 +1,11 @@
+{
+  "name": "CoplineHQ:frontend",
+  "service": "frontend",
+  "runServices": ["frontend"],
+  "dockerComposeFile": "../docker-compose.yml",
+  "workspaceFolder": "/workspaces/frontend",
+  "postCreateCommand": ["bash", "../.devcontainer/postCreate.sh"],
+  "features": {
+      "ghcr.io/devcontainers/features/node:1" : {}
+  }
+}
