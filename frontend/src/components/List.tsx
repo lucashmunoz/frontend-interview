@@ -63,7 +63,7 @@ const List = ({ list }: ListProp) => {
               {t("No tasks have been entered yet")}
             </p>
           </div>
-          : <ul className="pt-6">
+          : <ul className="pt-4">
             {
               todoItems.map(item => {
                 return (
@@ -73,7 +73,6 @@ const List = ({ list }: ListProp) => {
             }
           </ul>
         }
-
       </div>
     </section>
   );

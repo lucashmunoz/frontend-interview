@@ -1,41 +1,53 @@
-import { useState } from "react";
 import { TodoItem } from "../models";
-import api from "../../src/api";
-import { endpoints } from "../api/endpoints";
 import icons from "../assets/icons";
+import { useAppDispatch } from "../store/hooks";
+import { deleteTodoItem, updateTodoItem } from "../store/todoItemsSlice";
+import { fetchLists } from "../store/todoListsSlice";
 
 interface ItemProps {
   listId: number
   item: TodoItem
 }
 
-const { checkedIcon, uncheckedIcon } = icons;
+const { checkedIcon, uncheckedIcon, btnDelete } = icons;
 
 const Item = ({ listId, item }: ItemProps) => {
-  const { id: itemId, name, description, done: initialDoneState } = item;
-
-  const [doneState, setDoneState] = useState(initialDoneState);
+  const dispatch = useAppDispatch();
+  const { id: itemId, name, done } = item;
 
   const handleDoneButtonClick = async () => {
-    const updatedDoneState = !doneState;
+    await dispatch(updateTodoItem({
+      listId, itemId, item: {
+        done: !done
+      }
+    }));
 
-    await api.put(endpoints.todoItem(listId, itemId), {
-      name,
-      description,
-      done: updatedDoneState
-    });
+    // fetching the updated lists
+    dispatch(fetchLists());
+  };
 
-    setDoneState(updatedDoneState);
+  const handleDelete = async () => {
+    await dispatch(deleteTodoItem({
+      listId, itemId
+    }));
+
+    // fetching the updated lists
+    dispatch(fetchLists());
   };
 
   return (
-    <li className="flex">
-      <button onClick={handleDoneButtonClick}>
-        <img src={doneState ? checkedIcon : uncheckedIcon} className="h-10 w-10"/>
-      </button>
-      <span>
-        {name}
-      </span>
+    <li>
+      <div className="flex items-center gap-3 py-1">
+        <button onClick={handleDoneButtonClick}>
+          <img src={done ? checkedIcon : uncheckedIcon} className="h-7 w-7"/>
+        </button>
+        <span className={`flex-1 ${done && "line-through"}`}>
+          {name}
+        </span>
+        <button onClick={handleDelete}>
+          <img src={btnDelete} className="h-5 w-5"/>
+        </button>
+      </div>
     </li>
   );
 };

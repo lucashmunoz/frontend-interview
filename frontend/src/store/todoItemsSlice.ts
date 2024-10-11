@@ -7,15 +7,18 @@ import api from "../api";
 interface TodoItemsState {
   updateTodoItemLoading: "pending" | "succeeded" | "failed"
   addTodoItemLoading: "pending" | "succeeded" | "failed"
+  deleteTodoItemLoading: "pending" | "succeeded" | "failed"
 }
 
 const initialState: TodoItemsState = {
   updateTodoItemLoading: "pending",
-  addTodoItemLoading: "pending"
+  addTodoItemLoading: "pending",
+  deleteTodoItemLoading: "pending"
 };
 
 interface UpdateTodoItemParams {
-  id: number
+  listId: number
+  itemId: number
   item: Partial<TodoItem>
 }
 
@@ -24,9 +27,9 @@ interface UpdateTodoItemParams {
  */
 export const updateTodoItem = createAsyncThunk(
   "users/updateTodoItem",
-  async ({ id, item }: UpdateTodoItemParams, { rejectWithValue }) => {
+  async ({ listId, itemId, item }: UpdateTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.put(endpoints.todoItems(id), {
+      return await api.put(endpoints.todoItem(listId, itemId), {
         item
       });
     }catch(error) {
@@ -56,6 +59,25 @@ export const addTodoItem = createAsyncThunk(
   }
 );
 
+interface DeleteTodoItemParams {
+  listId: number
+  itemId: number
+}
+
+/**
+ * Deletes a TODO item.
+ */
+export const deleteTodoItem = createAsyncThunk(
+  "users/deleteTodoItem",
+  async ({ listId, itemId }: DeleteTodoItemParams, { rejectWithValue }) => {
+    try{
+      return await api.delete(endpoints.todoItem(listId, itemId));
+    }catch(error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const todoItemsSlice = createSlice({
   name: "todoItems",
   initialState,
@@ -79,6 +101,15 @@ export const todoItemsSlice = createSlice({
       })
       .addCase(addTodoItem.rejected, (state) => {
         state.addTodoItemLoading = "failed";
+      })
+      .addCase(deleteTodoItem.pending, (state) => {
+        state.deleteTodoItemLoading = "pending";
+      })
+      .addCase(deleteTodoItem.fulfilled, (state) => {
+        state.deleteTodoItemLoading = "succeeded";
+      })
+      .addCase(deleteTodoItem.rejected, (state) => {
+        state.deleteTodoItemLoading = "failed";
       });
   }
 });
@@ -88,5 +119,8 @@ export const selectUpdateTodoItemLoading = (state: RootState) => state.todoItems
 
 /** Returns add TODO list item loading state */
 export const selectAddTodoItemLoading = (state: RootState) => state.todoItems.addTodoItemLoading;
+
+/** Returns delete TODO list item loading state */
+export const selectDeleteTodoItemLoading = (state: RootState) => state.todoItems.deleteTodoItemLoading;
 
 export default todoItemsSlice.reducer;
