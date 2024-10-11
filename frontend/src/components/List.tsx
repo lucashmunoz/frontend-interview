@@ -23,7 +23,7 @@ const List = ({ id, name }: ListProp) => {
 
   return (
     <section className="w-ful">
-      <h2 className="bg-[#1e1e1e] text-white text-center">{name}</h2>
+      <h2 className="bg-black text-white text-center">{name}</h2>
       <div>
         <input placeholder="Add your task..."/>
       </div>
