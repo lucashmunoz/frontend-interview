@@ -1,6 +1,11 @@
 export const endpoints = {
   /**
    *
+   * @returns Todo lists api endpoint.
+   */
+  todoLists: "/api/todo-lists",
+  /**
+   *
    * @param listId The id of the list that contains the items.
    * @returns Api endpoint of the given list.
    */

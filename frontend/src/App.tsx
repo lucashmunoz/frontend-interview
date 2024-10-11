@@ -1,9 +1,9 @@
-import List from "./components/List";
+import Lists from "./components/Lists";
 
 function App() {
   return (
     <main className="p-4">
-      <List id={1} name="Nombre"/>
+      <Lists />
     </main>
   );
 }

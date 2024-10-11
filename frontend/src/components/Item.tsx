@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TodoItem } from "../models/Item";
+import { TodoItem } from "../models";
 import api from "../../src/api";
 import { endpoints } from "../api/endpoints";
 import icons from "../assets/icons";
