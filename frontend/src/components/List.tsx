@@ -3,6 +3,7 @@ import { TodoItem } from "../models";
 import api from "../../src/api";
 import Item from "./Item";
 import { endpoints } from "../api/endpoints";
+import { useTranslation } from "react-i18next";
 
 interface ListProp {
   name: string
@@ -10,6 +11,8 @@ interface ListProp {
 }
 
 const List = ({ id, name }: ListProp) => {
+  const { t } = useTranslation();
+
   const [items, setItems] = useState<TodoItem[]>([]);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ const List = ({ id, name }: ListProp) => {
     <section className="w-ful">
       <h2 className="bg-black text-white text-center">{name}</h2>
       <div>
-        <input placeholder="Add your task..."/>
+        <input placeholder={t("Add your task...")}/>
       </div>
       {
         items.map(item => {
