@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { TodoItem } from "../models/Item";
-import axios from "axios";
+import api from "../../src/api";
 import Item from "./Item";
+import { endpoints } from "../api/endpoints";
 
 interface ListProp {
   name: string
@@ -13,7 +14,7 @@ const List = ({ id, name }: ListProp) => {
 
   useEffect(() => {
     const fetchTodoItems = async () => {
-      const response = await axios.get(`http://localhost:4000/api/todo-lists/${id}/todo-items`);
+      const response = await api.get(endpoints.todoItems(id));
       setItems(response.data);
     };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TodoItem } from "../models/Item";
-import axios from "axios";
+import api from "../../src/api";
+import { endpoints } from "../api/endpoints";
 
 interface ItemProps {
   listId: number
@@ -11,14 +12,16 @@ const itemChecked = "src/assets/item-checked.svg";
 const itemUnChecked = "src/assets/item-unchecked.svg";
 
 const Item = ({ listId, item }: ItemProps) => {
-  const { id, name, description, done: initialDoneState } = item;
+  const { id: itemId, name, description, done: initialDoneState } = item;
 
   const [doneState, setDoneState] = useState(initialDoneState);
+
+  console.log(endpoints.todoItem(listId, itemId));
 
   const handleDoneButtonClick = async () => {
     const updatedDoneState = !doneState;
 
-    await axios.put(`http://localhost:4000/api/todo-lists/${listId}/todo-items/${id}`, {
+    await api.put(endpoints.todoItem(listId, itemId), {
       name,
       description,
       done: updatedDoneState
