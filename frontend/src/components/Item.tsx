@@ -2,21 +2,19 @@ import { useState } from "react";
 import { TodoItem } from "../models/Item";
 import api from "../../src/api";
 import { endpoints } from "../api/endpoints";
+import icons from "../assets/icons";
 
 interface ItemProps {
   listId: number
   item: TodoItem
 }
 
-const itemChecked = "src/assets/item-checked.svg";
-const itemUnChecked = "src/assets/item-unchecked.svg";
+const { checkedIcon, uncheckedIcon } = icons;
 
 const Item = ({ listId, item }: ItemProps) => {
   const { id: itemId, name, description, done: initialDoneState } = item;
 
   const [doneState, setDoneState] = useState(initialDoneState);
-
-  console.log(endpoints.todoItem(listId, itemId));
 
   const handleDoneButtonClick = async () => {
     const updatedDoneState = !doneState;
@@ -33,7 +31,7 @@ const Item = ({ listId, item }: ItemProps) => {
   return (
     <div className="flex">
       <button onClick={handleDoneButtonClick}>
-        <img src={doneState ? itemChecked : itemUnChecked} className="h-10 w-10"/>
+        <img src={doneState ? checkedIcon : uncheckedIcon} className="h-10 w-10"/>
       </button>
       <span>
         {name}
