@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import icons from "../assets/icons";
 import { useAppDispatch } from "../store/hooks";
 import { addTodoItem } from "../store/todoItemsSlice";
+import { Reorder } from "framer-motion";
 
 interface ListProp {
   list: TodoList
@@ -19,6 +20,7 @@ const List = ({ list }: ListProp) => {
   const { t } = useTranslation();
 
   const [newTask, setNewTask] = useState("");
+  const [orderedItems, setOrderedItems] = useState(todoItems);
 
   const listTitleId = `list-${id}`;
 
@@ -57,20 +59,22 @@ const List = ({ list }: ListProp) => {
             <img src={btnAdd} className="h-10 w-10"/>
           </button>
         </div>
-        {todoItems.length === 0
+        {orderedItems.length === 0
           ? <div className="px-4 py-10">
             <p>
               {t("No tasks have been entered yet")}
             </p>
           </div>
           : <ul className="pt-4">
-            {
-              todoItems.map(item => {
-                return (
-                  <Item key={item.id} item={item} listId={id}/>
-                );
-              })
-            }
+            <Reorder.Group values={orderedItems} onReorder={setOrderedItems}>
+              {
+                orderedItems.map(item =>(
+                  <Reorder.Item key={item.id} value={item}>
+                    <Item item={item} listId={id}/>
+                  </Reorder.Item>
+                ))
+              }
+            </Reorder.Group>
           </ul>
         }
       </div>
