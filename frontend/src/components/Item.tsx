@@ -29,14 +29,14 @@ const Item = ({ listId, item }: ItemProps) => {
   };
 
   return (
-    <div className="flex">
+    <li className="flex">
       <button onClick={handleDoneButtonClick}>
         <img src={doneState ? checkedIcon : uncheckedIcon} className="h-10 w-10"/>
       </button>
       <span>
         {name}
       </span>
-    </div>
+    </li>
   );
 };
 

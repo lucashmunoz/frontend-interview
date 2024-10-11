@@ -13,12 +13,11 @@ const Lists = () => {
 
   return (
     <>
-      {lists.map(list => {
-        const { id, name } = list;
-        return (
-          <List key={id} id={id} name={name}/>
-        );
-      })}
+      {lists.map(list => (
+        <div key={list.id} className="py-2">
+          <List list={list}/>
+        </div>
+      ))}
     </>
   );
 };
