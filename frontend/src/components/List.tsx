@@ -63,7 +63,7 @@ const List = ({ list }: ListProp) => {
           inputValue={newTask}
           onInputChange={handleNewTaskChange}
           inputPlaceholder={t("Add your task...")}
-          onButtonClick={handleAddTask}
+          onSubmit={handleAddTask}
           buttonAriaLabel={t("Add Task")}
         />
         {orderedItems.length === 0

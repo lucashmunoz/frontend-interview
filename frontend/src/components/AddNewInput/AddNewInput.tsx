@@ -10,8 +10,8 @@ interface AddNewInputProps {
   onInputChange: (e: React.FormEvent<HTMLInputElement>) => void
   /** Input placeholder text */
   inputPlaceholder: string
-  /** Callback called on add button click */
-  onButtonClick: () => void
+  /** Callback called on form submit */
+  onSubmit: () => void
   /** Button aria label for accessible name */
   buttonAriaLabel: string
 }
@@ -20,7 +20,7 @@ const AddNewInput = ({
   inputValue,
   onInputChange,
   inputPlaceholder,
-  onButtonClick,
+  onSubmit,
   buttonAriaLabel
 }: AddNewInputProps) => {
   /*
@@ -32,9 +32,18 @@ const AddNewInput = ({
   */
   const [isInputOnFocus, setIsInputOnFocus] = useState(false);
 
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    if(inputValue.length !== 0) {
+      onSubmit();
+    }
+  };
+
   return (
-    <div
+    <form
       className={`border-2 ${isInputOnFocus ? "border-yellow" : "border-black" }  rounded-3xl w-full flex overflow-hidden`}
+      onSubmit={handleSubmit}
     >
       <input
         className="w-full py-2 px-4 outline-none"
@@ -44,10 +53,10 @@ const AddNewInput = ({
         onBlur={() => setIsInputOnFocus(false)}
         onChange={onInputChange}
       />
-      <button onClick={inputValue ? onButtonClick : () => {}} aria-label={buttonAriaLabel}>
+      <button type="submit" aria-label={buttonAriaLabel}>
         <img src={btnAdd} className="h-10 w-10"/>
       </button>
-    </div>
+    </form>
   );
 };
 

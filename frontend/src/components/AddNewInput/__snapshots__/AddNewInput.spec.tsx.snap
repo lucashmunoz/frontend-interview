@@ -2,7 +2,7 @@
 
 exports[`AddNewInput > renders the component 1`] = `
 <DocumentFragment>
-  <div
+  <form
     class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
   >
     <input
@@ -12,12 +12,13 @@ exports[`AddNewInput > renders the component 1`] = `
     />
     <button
       aria-label="Button Aria Label"
+      type="submit"
     >
       <img
         class="h-10 w-10"
         src="/src/assets/btn-add.svg"
       />
     </button>
-  </div>
+  </form>
 </DocumentFragment>
 `;

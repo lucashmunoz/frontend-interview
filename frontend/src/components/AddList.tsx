@@ -30,7 +30,7 @@ const AddList = () => {
           inputValue={newListValue}
           onInputChange={handleInputChange}
           inputPlaceholder={t("Add a new list...")}
-          onButtonClick={handleAddListClick}
+          onSubmit={handleAddListClick}
           buttonAriaLabel={t("Add new list")}
         />
       </div>

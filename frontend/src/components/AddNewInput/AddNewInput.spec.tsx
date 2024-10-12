@@ -4,7 +4,7 @@ import AddNewInput from "./AddNewInput";
 import { vi } from "vitest";
 
 const mockOnInputChange = vi.fn();
-const mockOnButtonClick = vi.fn();
+const mockOnSubmit = vi.fn();
 
 describe("AddNewInput", () => {
   afterEach(() => {
@@ -17,7 +17,7 @@ describe("AddNewInput", () => {
         inputValue="test"
         onInputChange={mockOnInputChange}
         inputPlaceholder="Input Placeholder"
-        onButtonClick={mockOnButtonClick}
+        onSubmit={mockOnSubmit}
         buttonAriaLabel="Button Aria Label"
       />
     );
@@ -31,7 +31,7 @@ describe("AddNewInput", () => {
         inputValue="test"
         onInputChange={mockOnInputChange}
         inputPlaceholder="Input Placeholder"
-        onButtonClick={mockOnButtonClick}
+        onSubmit={mockOnSubmit}
         buttonAriaLabel="Button Aria Label"
       />
     );
@@ -42,13 +42,13 @@ describe("AddNewInput", () => {
     expect(mockOnInputChange).toHaveBeenCalled();
   });
 
-  it("should call the mockOnButtonClick callback on button click", async () => {
+  it("should call the mockOnSubmit callback on button click", async () => {
     render(
       <AddNewInput
         inputValue="test"
         onInputChange={mockOnInputChange}
         inputPlaceholder="Input Placeholder"
-        onButtonClick={mockOnButtonClick}
+        onSubmit={mockOnSubmit}
         buttonAriaLabel="Button Aria Label"
       />
     );
@@ -56,16 +56,16 @@ describe("AddNewInput", () => {
     const button = screen.getByRole("button");
     await userEvent.click(button);
 
-    expect(mockOnButtonClick).toHaveBeenCalled();
+    expect(mockOnSubmit).toHaveBeenCalled();
   });
 
-  it("should not call the mockOnButtonClick callback on button click when input is empty", async () => {
+  it("should not call the mockOnSubmit callback on button click when input is empty", async () => {
     render(
       <AddNewInput
         inputValue=""
         onInputChange={mockOnInputChange}
         inputPlaceholder="Input Placeholder"
-        onButtonClick={mockOnButtonClick}
+        onSubmit={mockOnSubmit}
         buttonAriaLabel="Button Aria Label"
       />
     );
@@ -73,6 +73,6 @@ describe("AddNewInput", () => {
     const button = screen.getByRole("button");
     await userEvent.click(button);
 
-    expect(mockOnButtonClick).not.toHaveBeenCalled();
+    expect(mockOnSubmit).not.toHaveBeenCalled();
   });
 });
