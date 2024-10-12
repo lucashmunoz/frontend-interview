@@ -22,6 +22,8 @@ const AddList = () => {
 
     // fetching the updated lists
     dispatch(fetchLists());
+
+    setNewListValue("");
   };
 
   return (

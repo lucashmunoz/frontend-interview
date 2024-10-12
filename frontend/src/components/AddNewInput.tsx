@@ -44,7 +44,7 @@ const AddNewInput = ({
         onBlur={() => setIsInputOnFocus(false)}
         onChange={onInputChange}
       />
-      <button onClick={onButtonClick} aria-label={buttonAriaLabel}>
+      <button onClick={inputValue ? onButtonClick : () => {}} aria-label={buttonAriaLabel}>
         <img src={btnAdd} className="h-10 w-10"/>
       </button>
     </div>
