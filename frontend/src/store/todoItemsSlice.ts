@@ -30,7 +30,11 @@ export const updateTodoItem = createAsyncThunk(
   "users/updateTodoItem",
   async ({ listId, itemId, item }: UpdateTodoItemParams, { rejectWithValue }) => {
     try{
-      await api.put(endpoints.todoItem(listId, itemId), item);
+      const response = await api.put(endpoints.todoItem(listId, itemId), item);
+      return {
+        listId,
+        updatedItem: response.data as TodoItem
+      };
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -49,7 +53,11 @@ export const addTodoItem = createAsyncThunk(
   "users/addTodoItem",
   async ({ listId, item }: AddTodoItemParams, { rejectWithValue }) => {
     try{
-      await api.post(endpoints.todoItems(listId), item);
+      const response = await api.post(endpoints.todoItems(listId), item);
+      return {
+        listId,
+        newItem: response.data as TodoItem
+      };
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -69,6 +77,10 @@ export const deleteTodoItem = createAsyncThunk(
   async ({ listId, itemId }: DeleteTodoItemParams, { rejectWithValue }) => {
     try{
       await api.delete(endpoints.todoItem(listId, itemId));
+      return {
+        listId,
+        deletedItemId: itemId
+      };
     }catch(error) {
       return rejectWithValue(error);
     }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import AddNewInput from "./AddNewInput";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "../store/hooks";
-import { addList, fetchLists } from "../store/todoListsSlice";
+import { addList } from "../store/todoListsSlice";
 
 const AddList = () => {
   const dispatch = useAppDispatch();
@@ -19,9 +19,6 @@ const AddList = () => {
     await dispatch(addList({
       name: newListValue
     }));
-
-    // fetching the updated lists
-    dispatch(fetchLists());
 
     setNewListValue("");
   };

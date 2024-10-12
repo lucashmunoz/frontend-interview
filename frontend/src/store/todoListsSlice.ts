@@ -4,6 +4,7 @@ import { endpoints } from "../api/endpoints";
 import { TodoList } from "../models";
 import api from "../api";
 import { LoadingStatus } from "./types";
+import { addTodoItem, deleteTodoItem, updateTodoItem } from "./todoItemsSlice";
 
 interface TodoListsState {
   lists: TodoList[]
@@ -43,9 +44,11 @@ export const addList = createAsyncThunk(
   "users/addList",
   async ({ name }: AddListParams, { rejectWithValue }) => {
     try{
-      await api.post(endpoints.todoLists, {
+      const response = await api.post(endpoints.todoLists, {
         name
       });
+
+      return response.data as TodoList;
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -73,11 +76,76 @@ export const todoListsSlice = createSlice({
       .addCase(addList.pending, (state) => {
         state.addListLoading = "pending";
       })
-      .addCase(addList.fulfilled, (state) => {
+      .addCase(addList.fulfilled, (state, action) => {
         state.addListLoading = "succeeded";
+
+        // Adding the new list to state
+        const updatedLists = [...state.lists, action.payload];
+        state.lists = updatedLists;
       })
       .addCase(addList.rejected, (state) => {
         state.addListLoading = "failed";
+      })
+      .addCase(addTodoItem.fulfilled, (state, action) => {
+        const { listId, newItem } = action.payload;
+
+        // Updating the item on state
+        const updatedLists = state.lists.map(list => {
+          if(list.id !== listId) {
+            return list;
+          }
+
+          return {
+            ...list,
+            todoItems: [...list.todoItems, newItem]
+          };
+        });
+
+        state.lists = updatedLists;
+      })
+      .addCase(updateTodoItem.fulfilled, (state, action) => {
+        const { listId, updatedItem } = action.payload;
+
+        // Updating the item on state
+        const updatedLists = state.lists.map(list => {
+          if(list.id !== listId) {
+            return list;
+          }
+
+          const updatedItems = list.todoItems.map(item => {
+            if(item.id === updatedItem.id) {
+              return updatedItem;
+            }
+            return item;
+          });
+
+          return {
+            ...list,
+            todoItems: updatedItems
+          };
+        });
+
+        state.lists = updatedLists;
+      })
+      .addCase(deleteTodoItem.fulfilled, (state, action) => {
+        const { listId, deletedItemId } = action.payload;
+        // Updating the item on state
+        const updatedLists = state.lists.map(list => {
+          if(list.id !== listId) {
+            return list;
+          }
+
+          const updatedItems = list.todoItems.filter(
+            item => item.id !== deletedItemId
+          );
+
+          return {
+            ...list,
+            todoItems: updatedItems
+          };
+        });
+
+        state.lists = updatedLists;
       });
   }
 });

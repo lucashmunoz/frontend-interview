@@ -2,7 +2,6 @@ import { TodoItem } from "../models";
 import icons from "../assets/icons";
 import { useAppDispatch } from "../store/hooks";
 import { deleteTodoItem, updateTodoItem } from "../store/todoItemsSlice";
-import { fetchLists } from "../store/todoListsSlice";
 import { useTranslation } from "react-i18next";
 
 interface ItemProps {
@@ -24,18 +23,12 @@ const Item = ({ listId, item }: ItemProps) => {
         done: !done
       }
     }));
-
-    // fetching the updated lists
-    dispatch(fetchLists());
   };
 
   const handleDelete = async () => {
     await dispatch(deleteTodoItem({
       listId, itemId
     }));
-
-    // fetching the updated lists
-    dispatch(fetchLists());
   };
 
   return (
