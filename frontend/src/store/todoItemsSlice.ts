@@ -3,11 +3,12 @@ import type { RootState } from ".";
 import { endpoints } from "../api/endpoints";
 import { TodoItem } from "../models";
 import api from "../api";
+import { LoadingStatus } from "./types";
 
 interface TodoItemsState {
-  updateTodoItemLoading: "pending" | "succeeded" | "failed"
-  addTodoItemLoading: "pending" | "succeeded" | "failed"
-  deleteTodoItemLoading: "pending" | "succeeded" | "failed"
+  updateTodoItemLoading: LoadingStatus
+  addTodoItemLoading: LoadingStatus
+  deleteTodoItemLoading: LoadingStatus
 }
 
 const initialState: TodoItemsState = {
@@ -29,7 +30,7 @@ export const updateTodoItem = createAsyncThunk(
   "users/updateTodoItem",
   async ({ listId, itemId, item }: UpdateTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.put(endpoints.todoItem(listId, itemId), item);
+      await api.put(endpoints.todoItem(listId, itemId), item);
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -48,7 +49,7 @@ export const addTodoItem = createAsyncThunk(
   "users/addTodoItem",
   async ({ listId, item }: AddTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.post(endpoints.todoItems(listId), item);
+      await api.post(endpoints.todoItems(listId), item);
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -67,7 +68,7 @@ export const deleteTodoItem = createAsyncThunk(
   "users/deleteTodoItem",
   async ({ listId, itemId }: DeleteTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.delete(endpoints.todoItem(listId, itemId));
+      await api.delete(endpoints.todoItem(listId, itemId));
     }catch(error) {
       return rejectWithValue(error);
     }

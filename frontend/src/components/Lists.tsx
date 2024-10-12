@@ -12,13 +12,13 @@ const Lists = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="flex gap-5 flex-wrap">
       {lists.map(list => (
-        <div key={list.id} className="py-2">
+        <div key={list.id} className="max-w-md min-w-80">
           <List list={list}/>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -15,7 +15,8 @@ export default {
       colors: {
         "white": "#ffffff",
         "black": "#1e1e1e",
-        "grey": "#1e1e1ecc"
+        "grey": "#1e1e1ecc",
+        "yellow": "#a0a0a0"
       },
       fontFamily: {
         sans: [
