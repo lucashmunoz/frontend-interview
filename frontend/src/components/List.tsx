@@ -66,7 +66,7 @@ const List = ({ list }: ListProp) => {
   return (
     <section className="w-full border-2 border-black rounded-xl overflow-hidden min-h-60" aria-labelledby={listTitleId}>
       <div className="h-10 bg-black relative">
-        <h2 id={listTitleId} className="text-white text-2xl font-bold flex-grow text-center">{name}</h2>
+        <h2 id={listTitleId} className="h-full content-center text-white text-2xl font-bold flex-grow text-center">{name}</h2>
         <button className="h-full absolute top-0 right-0 p-2" onClick={handleDeleteList}>
           <img src={btnDelete} className="w-full h-full fill-white filter invert"/>
         </button>
