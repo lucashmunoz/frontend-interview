@@ -6,6 +6,7 @@ import icons from "../assets/icons";
 import { useAppDispatch } from "../store/hooks";
 import { addTodoItem } from "../store/todoItemsSlice";
 import { Reorder } from "framer-motion";
+import { fetchLists } from "../store/todoListsSlice";
 
 interface ListProp {
   list: TodoList
@@ -29,8 +30,8 @@ const List = ({ list }: ListProp) => {
     setNewTask(value);
   };
 
-  const handleAddTask = () => {
-    dispatch(addTodoItem({
+  const handleAddTask = async() => {
+    await dispatch(addTodoItem({
       listId: id,
       item: {
         name: newTask,
@@ -38,6 +39,9 @@ const List = ({ list }: ListProp) => {
         description: ""
       }
     }));
+
+    // fetching the updated lists
+    dispatch(fetchLists());
   };
 
   return (

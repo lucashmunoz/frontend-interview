@@ -29,9 +29,7 @@ export const updateTodoItem = createAsyncThunk(
   "users/updateTodoItem",
   async ({ listId, itemId, item }: UpdateTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.put(endpoints.todoItem(listId, itemId), {
-        item
-      });
+      return await api.put(endpoints.todoItem(listId, itemId), item);
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -50,9 +48,7 @@ export const addTodoItem = createAsyncThunk(
   "users/addTodoItem",
   async ({ listId, item }: AddTodoItemParams, { rejectWithValue }) => {
     try{
-      return await api.post(endpoints.todoItems(listId), {
-        item
-      });
+      return await api.post(endpoints.todoItems(listId), item);
     }catch(error) {
       return rejectWithValue(error);
     }
