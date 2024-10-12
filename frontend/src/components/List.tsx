@@ -65,17 +65,15 @@ const List = ({ list }: ListProp) => {
               {t("No tasks have been entered yet")}
             </p>
           </div>
-          : <ul className="pt-4">
-            <Reorder.Group values={orderedItems} onReorder={setOrderedItems}>
-              {
-                orderedItems.map(item =>(
-                  <Reorder.Item key={item.id} value={item}>
-                    <Item item={item} listId={id}/>
-                  </Reorder.Item>
-                ))
-              }
-            </Reorder.Group>
-          </ul>
+          : <Reorder.Group className="pt-4" values={orderedItems} onReorder={setOrderedItems}>
+            {
+              orderedItems.map(item =>(
+                <Reorder.Item key={item.id} value={item}>
+                  <Item item={item} listId={id}/>
+                </Reorder.Item>
+              ))
+            }
+          </Reorder.Group>
         }
       </div>
     </section>
