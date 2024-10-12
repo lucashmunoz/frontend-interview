@@ -1,5 +1,5 @@
 import { useState } from "react";
-import icons from "../assets/icons";
+import icons from "../../assets/icons";
 
 const { btnAdd } = icons;
 

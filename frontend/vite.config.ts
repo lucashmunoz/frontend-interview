@@ -1,5 +1,8 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { coverageConfigDefaults } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,5 +13,15 @@ export default defineConfig({
     watch: {
       usePolling: true // Enable polling for hot reload
     }
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    include: ["./src/**/*.{test,spec}.{ts,tsx}"],
+    coverage: {
+      exclude: ["**/custom-pattern/**", ...coverageConfigDefaults.exclude],
+      provider: "istanbul"
+    },
+    setupFiles: ["./src/setupTests.ts"]
   }
 });
