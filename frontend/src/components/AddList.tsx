@@ -15,8 +15,8 @@ const AddList = () => {
     setNewListValue(value);
   };
 
-  const handleAddListClick = async () => {
-    await dispatch(addList({
+  const handleAddListClick = () => {
+    dispatch(addList({
       name: newListValue
     }));
 

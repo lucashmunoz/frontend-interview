@@ -6,6 +6,10 @@ import { useAppDispatch } from "../store/hooks";
 import { addTodoItem } from "../store/todoItemsSlice";
 import { Reorder } from "framer-motion";
 import AddNewInput from "./AddNewInput";
+import icons from "../assets/icons";
+import { deleteList } from "../store/todoListsSlice";
+
+const { btnDelete } = icons;
 
 interface ListProp {
   list: TodoList
@@ -27,14 +31,20 @@ const List = ({ list }: ListProp) => {
     setNewTask(value);
   };
 
-  const handleAddTask = async() => {
-    await dispatch(addTodoItem({
+  const handleAddTask = () => {
+    dispatch(addTodoItem({
       listId: id,
       item: {
         name: newTask,
         // No description added in TODO list input
         description: ""
       }
+    }));
+  };
+
+  const handleDeleteList = () => {
+    dispatch(deleteList({
+      listId: id
     }));
   };
 
@@ -55,8 +65,11 @@ const List = ({ list }: ListProp) => {
 
   return (
     <section className="w-full border-2 border-black rounded-xl overflow-hidden min-h-60" aria-labelledby={listTitleId}>
-      <div className="h-10 bg-black flex justify-center items-center">
-        <h2 id={listTitleId} className="text-white text-2xl font-bold">{name}</h2>
+      <div className="h-10 bg-black relative">
+        <h2 id={listTitleId} className="text-white text-2xl font-bold flex-grow text-center">{name}</h2>
+        <button className="h-full absolute top-0 right-0 p-2" onClick={handleDeleteList}>
+          <img src={btnDelete} className="w-full h-full fill-white filter invert"/>
+        </button>
       </div>
       <div className="p-6">
         <AddNewInput

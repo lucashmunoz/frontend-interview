@@ -10,12 +10,14 @@ interface TodoListsState {
   lists: TodoList[]
   fetchListsloading: LoadingStatus
   addListLoading: LoadingStatus
+  deleteListLoading: LoadingStatus
 }
 
 const initialState: TodoListsState = {
   lists: [],
   fetchListsloading: "pending",
-  addListLoading: "pending"
+  addListLoading: "pending",
+  deleteListLoading: "pending"
 };
 
 /**
@@ -55,6 +57,27 @@ export const addList = createAsyncThunk(
   }
 );
 
+interface DeleteListParams {
+  listId: number
+}
+
+/**
+ * Deletes a TODO list.
+ */
+export const deleteList = createAsyncThunk(
+  "users/deleteList",
+  async ({ listId }: DeleteListParams, { rejectWithValue }) => {
+    try{
+      await api.delete(`${endpoints.todoLists}/${listId}`);
+      return {
+        deletedListId: listId
+      };
+    }catch(error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const todoListsSlice = createSlice({
   name: "todoLists",
   initialState,
@@ -85,6 +108,20 @@ export const todoListsSlice = createSlice({
       })
       .addCase(addList.rejected, (state) => {
         state.addListLoading = "failed";
+      })
+      .addCase(deleteList.pending, (state) => {
+        state.deleteListLoading = "pending";
+      })
+      .addCase(deleteList.fulfilled, (state, action) => {
+        const { deletedListId } = action.payload;
+        state.deleteListLoading = "succeeded";
+
+        // Removing the list from state
+        const updatedLists = state.lists.filter(list => list.id !== deletedListId);
+        state.lists = updatedLists;
+      })
+      .addCase(deleteList.rejected, (state) => {
+        state.deleteListLoading = "failed";
       })
       .addCase(addTodoItem.fulfilled, (state, action) => {
         const { listId, newItem } = action.payload;

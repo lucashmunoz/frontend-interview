@@ -17,16 +17,16 @@ const Item = ({ listId, item }: ItemProps) => {
 
   const { id: itemId, name, done } = item;
 
-  const handleDoneButtonClick = async () => {
-    await dispatch(updateTodoItem({
+  const handleDoneButtonClick = () => {
+    dispatch(updateTodoItem({
       listId, itemId, item: {
         done: !done
       }
     }));
   };
 
-  const handleDelete = async () => {
-    await dispatch(deleteTodoItem({
+  const handleDelete = () => {
+    dispatch(deleteTodoItem({
       listId, itemId
     }));
   };
