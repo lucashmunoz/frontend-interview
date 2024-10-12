@@ -17,6 +17,12 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors({
+    allowedHeaders: ['content-type'],
+    origin: 'http://localhost:5173',
+    credentials: true,
+  });
+
   const config = new DocumentBuilder()
     .setTitle('Todo-Lists API')
     .setDescription('Todo-Lists API for frontend interview')
