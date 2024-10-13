@@ -1,5 +1,4 @@
 import App from "./App";
-import { vi } from "vitest";
 import { screen, waitFor } from "@testing-library/dom";
 import { renderWithProviders } from "./utils/test-utils";
 import { server } from "./mocks/server";
@@ -7,10 +6,6 @@ import { createHandlerAddList, handlers } from "./mocks/handlers";
 import userEvent from "@testing-library/user-event";
 
 describe("App", () => {
-  afterEach(() => {
-    vi.resetAllMocks();
-  });
-
   it("should add a new list", async () => {
     const newListName = "My new list";
     server.use(...handlers, createHandlerAddList(newListName));

@@ -40,6 +40,8 @@ const List = ({ list }: ListProp) => {
         description: ""
       }
     }));
+
+    setNewTask("");
   };
 
   const handleDeleteList = () => {

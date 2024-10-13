@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { RootState } from ".";
-import { endpoints } from "../api/endpoints";
 import { TodoList } from "../models";
-import api from "../api";
 import { LoadingStatus } from "./types";
 import { addTodoItem, deleteTodoItem, updateTodoItem } from "./todoItemsSlice";
+import { listsAPI } from "../api/listsAPI";
 
 interface TodoListsState {
   lists: TodoList[]
@@ -27,8 +26,7 @@ export const fetchLists = createAsyncThunk(
   "users/fetchLists",
   async (_, { rejectWithValue }) => {
     try{
-      const response = await api.get(endpoints.todoLists);
-      return response.data as TodoList[];
+      return listsAPI.getAll();
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -46,11 +44,7 @@ export const addList = createAsyncThunk(
   "users/addList",
   async ({ name }: AddListParams, { rejectWithValue }) => {
     try{
-      const response = await api.post(endpoints.todoLists, {
-        name
-      });
-
-      return response.data as TodoList;
+      return listsAPI.create(name);
     }catch(error) {
       return rejectWithValue(error);
     }
@@ -68,10 +62,7 @@ export const deleteList = createAsyncThunk(
   "users/deleteList",
   async ({ listId }: DeleteListParams, { rejectWithValue }) => {
     try{
-      await api.delete(`${endpoints.todoLists}/${listId}`);
-      return {
-        deletedListId: listId
-      };
+      return listsAPI.delete(listId);
     }catch(error) {
       return rejectWithValue(error);
     }
