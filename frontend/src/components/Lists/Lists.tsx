@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchLists, selectTodoLists } from "../store/todoListsSlice";
-import List from "./List";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { fetchLists, selectTodoLists } from "../../store/todoListsSlice";
+import List from "../List";
 
 const Lists = () => {
   const dispatch = useAppDispatch();

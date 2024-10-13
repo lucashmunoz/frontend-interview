@@ -1,0 +1,469 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Lists > renders the component 1`] = `
+<DocumentFragment>
+  <div
+    class="flex gap-5 flex-wrap"
+  >
+    <div
+      class="max-w-md min-w-80"
+    >
+      <section
+        aria-labelledby="list-1"
+        class="w-full border-2 border-black rounded-xl overflow-hidden min-h-60"
+      >
+        <div
+          class="h-10 bg-black relative"
+        >
+          <h2
+            class="h-full content-center text-white text-2xl font-bold flex-grow text-center"
+            id="list-1"
+          >
+            Groceries
+          </h2>
+          <button
+            class="h-full absolute top-0 right-0 p-2"
+          >
+            <img
+              class="w-full h-full fill-white filter invert"
+              src="/src/assets/btn-delete.svg"
+            />
+          </button>
+        </div>
+        <div
+          class="p-6"
+        >
+          <form
+            class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
+          >
+            <input
+              class="w-full py-2 px-4 outline-none"
+              placeholder="Add your task..."
+              value=""
+            />
+            <button
+              aria-label="Add Task"
+              type="submit"
+            >
+              <img
+                class="h-10 w-10"
+                src="/src/assets/btn-add.svg"
+              />
+            </button>
+          </form>
+          <ul
+            class="pt-4"
+          >
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Buy milk
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Buy eggs
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Buy bread
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as not done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-checked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 line-through"
+                >
+                  Buy fruits
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div
+      class="max-w-md min-w-80"
+    >
+      <section
+        aria-labelledby="list-2"
+        class="w-full border-2 border-black rounded-xl overflow-hidden min-h-60"
+      >
+        <div
+          class="h-10 bg-black relative"
+        >
+          <h2
+            class="h-full content-center text-white text-2xl font-bold flex-grow text-center"
+            id="list-2"
+          >
+            Chores
+          </h2>
+          <button
+            class="h-full absolute top-0 right-0 p-2"
+          >
+            <img
+              class="w-full h-full fill-white filter invert"
+              src="/src/assets/btn-delete.svg"
+            />
+          </button>
+        </div>
+        <div
+          class="p-6"
+        >
+          <form
+            class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
+          >
+            <input
+              class="w-full py-2 px-4 outline-none"
+              placeholder="Add your task..."
+              value=""
+            />
+            <button
+              aria-label="Add Task"
+              type="submit"
+            >
+              <img
+                class="h-10 w-10"
+                src="/src/assets/btn-add.svg"
+              />
+            </button>
+          </form>
+          <ul
+            class="pt-4"
+          >
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Clean the house
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Wash dishes
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as not done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-checked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 line-through"
+                >
+                  Do laundry
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Take out trash
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div
+      class="max-w-md min-w-80"
+    >
+      <section
+        aria-labelledby="list-3"
+        class="w-full border-2 border-black rounded-xl overflow-hidden min-h-60"
+      >
+        <div
+          class="h-10 bg-black relative"
+        >
+          <h2
+            class="h-full content-center text-white text-2xl font-bold flex-grow text-center"
+            id="list-3"
+          >
+            Assignments
+          </h2>
+          <button
+            class="h-full absolute top-0 right-0 p-2"
+          >
+            <img
+              class="w-full h-full fill-white filter invert"
+              src="/src/assets/btn-delete.svg"
+            />
+          </button>
+        </div>
+        <div
+          class="p-6"
+        >
+          <form
+            class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
+          >
+            <input
+              class="w-full py-2 px-4 outline-none"
+              placeholder="Add your task..."
+              value=""
+            />
+            <button
+              aria-label="Add Task"
+              type="submit"
+            >
+              <img
+                class="h-10 w-10"
+                src="/src/assets/btn-add.svg"
+              />
+            </button>
+          </form>
+          <ul
+            class="pt-4"
+          >
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as not done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-checked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 line-through"
+                >
+                  Math homework
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+            <li
+              draggable="false"
+              style="z-index: unset; transform: none; user-select: none;"
+            >
+              <div
+                class="flex items-center gap-3 py-1"
+              >
+                <button
+                  aria-label="Mark as done"
+                >
+                  <img
+                    class="h-7 w-7"
+                    src="/src/assets/item-unchecked.svg"
+                  />
+                </button>
+                <span
+                  class="flex-1 false"
+                >
+                  Science project
+                </span>
+                <button
+                  aria-label="Delete item"
+                >
+                  <img
+                    class="h-5 w-5"
+                    src="/src/assets/btn-delete.svg"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;
