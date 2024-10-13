@@ -48,13 +48,15 @@ const AddNewInput = ({
       <input
         className="w-full py-2 px-4 outline-none"
         placeholder={inputPlaceholder}
+        aria-label={inputPlaceholder}
         value={inputValue}
         onFocus={() => setIsInputOnFocus(true)}
         onBlur={() => setIsInputOnFocus(false)}
         onChange={onInputChange}
       />
       <button type="submit" aria-label={buttonAriaLabel}>
-        <img src={btnAdd} className="h-10 w-10"/>
+        {/* empty alt attribute to hide the decorative image from a11y tools */}
+        <img alt="" src={btnAdd} className="h-10 w-10"/>
       </button>
     </form>
   );

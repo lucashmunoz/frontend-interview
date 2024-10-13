@@ -37,13 +37,15 @@ const Item = ({ listId, item }: ItemProps) => {
         onClick={handleDoneButtonClick}
         aria-label={done ? t("Mark as not done") : t("Mark as done")}
       >
-        <img src={done ? checkedIcon : uncheckedIcon} className="h-7 w-7"/>
+        {/* empty alt attribute to hide the decorative image from a11y tools */}
+        <img alt="" src={done ? checkedIcon : uncheckedIcon} className="h-7 w-7"/>
       </button>
       <span className={`flex-1 ${done && "line-through"}`}>
         {name}
       </span>
       <button onClick={handleDelete} aria-label={t("Delete item")}>
-        <img src={btnDelete} className="h-5 w-5"/>
+        {/* empty alt attribute to hide the decorative image from a11y tools */}
+        <img alt="" src={btnDelete} className="h-5 w-5"/>
       </button>
     </div>
   );

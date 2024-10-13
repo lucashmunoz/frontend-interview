@@ -25,6 +25,7 @@ exports[`Lists > renders the component 1`] = `
             class="h-full absolute top-0 right-0 p-2"
           >
             <img
+              alt=""
               class="w-full h-full fill-white filter invert"
               src="/src/assets/btn-delete.svg"
             />
@@ -37,6 +38,7 @@ exports[`Lists > renders the component 1`] = `
             class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
           >
             <input
+              aria-label="Add your task..."
               class="w-full py-2 px-4 outline-none"
               placeholder="Add your task..."
               value=""
@@ -46,6 +48,7 @@ exports[`Lists > renders the component 1`] = `
               type="submit"
             >
               <img
+                alt=""
                 class="h-10 w-10"
                 src="/src/assets/btn-add.svg"
               />
@@ -65,6 +68,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -78,6 +82,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -95,6 +100,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -108,6 +114,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -125,6 +132,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -138,6 +146,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -155,6 +164,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as not done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-checked.svg"
                   />
@@ -168,6 +178,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -198,6 +209,7 @@ exports[`Lists > renders the component 1`] = `
             class="h-full absolute top-0 right-0 p-2"
           >
             <img
+              alt=""
               class="w-full h-full fill-white filter invert"
               src="/src/assets/btn-delete.svg"
             />
@@ -210,6 +222,7 @@ exports[`Lists > renders the component 1`] = `
             class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
           >
             <input
+              aria-label="Add your task..."
               class="w-full py-2 px-4 outline-none"
               placeholder="Add your task..."
               value=""
@@ -219,6 +232,7 @@ exports[`Lists > renders the component 1`] = `
               type="submit"
             >
               <img
+                alt=""
                 class="h-10 w-10"
                 src="/src/assets/btn-add.svg"
               />
@@ -238,6 +252,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -251,6 +266,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -268,6 +284,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -281,6 +298,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -298,6 +316,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as not done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-checked.svg"
                   />
@@ -311,6 +330,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -328,6 +348,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -341,6 +362,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -371,6 +393,7 @@ exports[`Lists > renders the component 1`] = `
             class="h-full absolute top-0 right-0 p-2"
           >
             <img
+              alt=""
               class="w-full h-full fill-white filter invert"
               src="/src/assets/btn-delete.svg"
             />
@@ -383,6 +406,7 @@ exports[`Lists > renders the component 1`] = `
             class="border-2 border-black  rounded-3xl w-full flex overflow-hidden"
           >
             <input
+              aria-label="Add your task..."
               class="w-full py-2 px-4 outline-none"
               placeholder="Add your task..."
               value=""
@@ -392,6 +416,7 @@ exports[`Lists > renders the component 1`] = `
               type="submit"
             >
               <img
+                alt=""
                 class="h-10 w-10"
                 src="/src/assets/btn-add.svg"
               />
@@ -411,6 +436,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as not done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-checked.svg"
                   />
@@ -424,6 +450,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />
@@ -441,6 +468,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Mark as done"
                 >
                   <img
+                    alt=""
                     class="h-7 w-7"
                     src="/src/assets/item-unchecked.svg"
                   />
@@ -454,6 +482,7 @@ exports[`Lists > renders the component 1`] = `
                   aria-label="Delete item"
                 >
                   <img
+                    alt=""
                     class="h-5 w-5"
                     src="/src/assets/btn-delete.svg"
                   />

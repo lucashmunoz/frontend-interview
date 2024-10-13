@@ -68,7 +68,8 @@ const List = ({ list }: ListProp) => {
       <div className="h-10 bg-black relative">
         <h2 id={listTitleId} className="h-full content-center text-white text-2xl font-bold flex-grow text-center">{name}</h2>
         <button className="h-full absolute top-0 right-0 p-2" onClick={handleDeleteList}>
-          <img src={btnDelete} className="w-full h-full fill-white filter invert"/>
+          {/* empty alt attribute to hide the decorative image from a11y tools */}
+          <img alt="" src={btnDelete} className="w-full h-full fill-white filter invert"/>
         </button>
       </div>
       <div className="p-6">

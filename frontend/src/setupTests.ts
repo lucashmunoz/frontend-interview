@@ -8,7 +8,7 @@ afterEach(() => {
   cleanup();
 });
 
-/* MSW mock server */
+/* MSW server */
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
