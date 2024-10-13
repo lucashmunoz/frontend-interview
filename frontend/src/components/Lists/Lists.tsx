@@ -12,7 +12,7 @@ const Lists = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex gap-5 flex-wrap">
+    <div className="flex gap-5 flex-wrap justify-center">
       {lists.map(list => (
         <div key={list.id} className="max-w-md min-w-80">
           <List list={list}/>
