@@ -1,5 +1,29 @@
 
-# frontend-interview
+# frontend-interview - Lucas Muñoz
+
+This is Lucas Muñoz Todo Lists app front end interview for Crunchloop.
+
+The project includes:
+
+**Lists**
+* Create new lists.
+* Delete lists.
+
+**Items**
+* Create new items.
+* Delete items.
+* Mark items as done / not done.
+* Drag and drop items to change their order.
+
+**The project was made using:**
+* Redux Toolkit for state management.
+* Tailwind for styles and theme.
+* API layer for api calls.
+* Translations structure using i18next.
+* Tests with Vitest and React Testing Library.
+* Mock Service Worker to mock api calls during tests.
+
+## Original Project
 
 This repository contains a simple Todo List API built with NestJS and TypeScript, along with a React Vite project scaffold.
 
